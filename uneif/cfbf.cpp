@@ -107,7 +107,7 @@ EifFile::EifFile(std::istream& fin) : fin(fin) {
 }
 
 bool EifFile::checkHeader(const Header& header) {
-	const Header defaultHeader;
+	static constexpr Header defaultHeader{};
 	if (memcmp(header.magic, defaultHeader.magic, sizeof(header.magic)) != 0) {
 		return false;
 	}
